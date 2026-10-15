@@ -350,8 +350,7 @@ or declarations can be analyzed.
 These are lightweight static analyses, not complete language parsers. Python
 uses `ast`; the other supported graph and symbol paths use regular expressions
 and can miss syntax or match text that is not a declaration. JavaScript/TypeScript
-symbol indexing covers named exports, not every local declaration, and currently
-misses exported async functions. Go, Rust and Java have their own limited
+symbol indexing covers named exports, not every local declaration. Go, Rust and Java have their own limited
 patterns. Detected languages and suffixes are defined in `EXT_TO_LANG` in
 `peek/peek/scanner.py`; `.mts`, `.cts` and `.kts` are not currently mapped.
 Binary files have zero LOC, and large files use approximate counts.
