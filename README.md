@@ -96,7 +96,7 @@ peek trace Value.backward --html -o trace.html --theme dracula
 peek trace scan --depth 3 --show-externals --direction callers
 ```
 
-`--depth 1-6` • `--direction callees|callers|both` • `--cross-file/--local` • `--show-externals` • `--at FILE:LINE` • `--json`/`--output` • `--html` (temp + `webbrowser.open`) • Python-only for now (JS/TS/Go/Rust later) • `pip install -e "."` or `pip install -e ".[dev]"`.
+`--depth 1-6` • `--direction callees|callers|both` • `--cross-file/--local` • `--show-externals` • `--at FILE:LINE` • `--json`/`--output` • `--html` (temp + `webbrowser.open`) • Python-only for now (JS/TS/Go/Rust later) • `pip install -e "./peek[dev]"` from the Git root.
 
 ## Demo (by code)
 
@@ -162,19 +162,30 @@ Post the `Start Here` map as a PR comment — see [`.github/workflows/peek.yml`]
 ## Development
 
 ```bash
-git clone https://github.com/hariomlohardev/peek && cd peek
-pip install -e ".[dev]"
-pytest -q          # 146 passed, 1 skipped
-peek --no-tui
-peek              # TUI — q to quit, peek . also works
-python -m peek.tools.gen_demo
+# 1. Fork the repository on GitHub, then clone YOUR fork and create a branch
+git clone https://github.com/<your-username>/peek && cd peek
+git checkout -b fix/thing
+
+# 2. Create a virtual environment (Python 3.11+)
+python -m venv .venv
+source .venv/bin/activate        # macOS/Linux
+# .venv\Scripts\Activate.ps1      # Windows PowerShell
+
+# 3. Install from the Git root - the package manifest is peek/pyproject.toml
+python -m pip install -e "./peek[dev]"
+
+# 4. Tests, lint, and the demo generator run from peek/
+cd peek
+python -m pytest -q
+ruff check peek
+python -m peek.tools.gen_demo    # optional: regenerate the demo GIF
 ```
 
-See [`peek/CONTRIBUTING.md`](peek/CONTRIBUTING.md). `ruff` + `pytest` before PR. Branch `v3` is the big upshift.
+See [`peek/CONTRIBUTING.md`](peek/CONTRIBUTING.md). Run `ruff` + `pytest` (from `peek/`) before opening a PR.
 
 ## Contributing — Good First Issues
 
-**Want to contribute?** We have **35 open issues** tailored for every level — and they rank high on GitHub's `good first issue` search:
+**Want to contribute?** Browse the live [`good first issue`](https://github.com/hariomlohardev/peek/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and [`help wanted`](https://github.com/hariomlohardev/peek/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) filters — they rank high on GitHub's `good first issue` search:
 
 <a href="https://github.com/hariomlohardev/peek/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"><img src="https://img.shields.io/github/issues/hariomlohardev/peek/good%20first%20issue?label=good%20first%20issues&color=7057ff" alt="Good First Issues"/></a> <a href="https://github.com/hariomlohardev/peek/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22"><img src="https://img.shields.io/github/issues/hariomlohardev/peek/help%20wanted?label=help%20wanted" alt="Help Wanted"/></a>
 
