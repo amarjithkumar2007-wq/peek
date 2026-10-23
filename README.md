@@ -191,13 +191,12 @@ See [`peek/CONTRIBUTING.md`](peek/CONTRIBUTING.md). Run `ruff` + `pytest` (from 
 
 **Browse all:** https://github.com/hariomlohardev/peek/issues
 
-- **20 Good First Issues (30 min, beginner):** One file, copy-paste steps, `good first issue` + `help wanted` labels — e.g., docstrings, `peek wtf --help` example, `peek --version` test. Perfect for first PR!
-- **10 Intermediate (60-90 min):** `tiktoken` tokens, `peek diff`, `peek serve`, symbol index — needs a bit of design.
-- **5 Complex (1-2 days):** `peek-mcp` for Claude Code, polyglot `tree-sitter`, `peek-vscode` — for experienced contributors.
+- **First contribution:** Browse the live `good first issue` filter above for beginner-friendly tasks.
+- **More ways to help:** Browse the live `help wanted` filter above, or the full issue list, and read each issue's scope before choosing a task.
 
 Every issue has **exact file**, **acceptance checkboxes**, and **time estimate**. PRs with `good first issue` get priority review and will be featured in release notes.
 
-See [`peek/CONTRIBUTING.md`](peek/CONTRIBUTING.md) for the full workflow. Branch `v3` is where the big upshift lands (polyglot + semantic + MCP + graph).
+See [`peek/CONTRIBUTING.md`](peek/CONTRIBUTING.md) for the full workflow.
 
 ## Why peek?
 
